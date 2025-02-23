@@ -1,10 +1,21 @@
 .button {
     -fx-background-color: aliceblue;
     -fx-border-color: lightgrey;
-    -fx-text-fill: red;
     -fx-font-size: 18px;
-    -fx-font-style: bold;
+    -fx-text-fill: red;
+    -fx-font-weight: bold;
     -fx-font-family: "Times New Roman";
+}
+
+.button:hover{
+    -fx-background-color: cornflowerblue;
+    -fx-text-fill: azure;
+
+}
+
+.button:pressed{
+    -fx-background-color: navy;
+    -fx-text-fill: maroon;
 }
 #btn_salir{
 
@@ -14,7 +25,7 @@
     -fx-font-family: "Arial Black";
 }
 #lbl_coName{
-    -fx-font-style: bold;
+    -fx-font-weight: bold;
     -fx-font-family: "Times New Roman";
 }
 
