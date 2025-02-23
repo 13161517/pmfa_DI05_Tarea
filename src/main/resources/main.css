@@ -1,0 +1,35 @@
+.button {
+    -fx-background-color: aliceblue;
+    -fx-border-color: lightgrey;
+    -fx-text-fill: red;
+    -fx-font-size: 18px;
+    -fx-font-style: bold;
+    -fx-font-family: "Times New Roman";
+}
+#btn_salir{
+
+    -fx-background-color: red;
+    -fx-border-color: lightgrey;
+    -fx-text-fill: aliceblue;
+    -fx-font-family: "Arial Black";
+}
+#lbl_coName{
+    -fx-font-style: bold;
+    -fx-font-family: "Times New Roman";
+}
+
+#acPane{
+    -fx-background-color: white;
+    -fx-border-color: blue;
+}
+#lst_Art {
+    -fx-background-color: aliceblue;
+}
+
+#btn_BAR{
+    -fx-background-color: white;
+    -fx-border-color: blue;
+}
+#img_coName{
+    -fx-translate-x: -40px;
+}

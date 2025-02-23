@@ -1,0 +1,162 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="art" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1589eea5-a5c4-42be-a171-f666b2c556c2" summaryWithPageHeaderAndFooter="true">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="chinook"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="background.image.alpha" value="0.95"/>
+	<dataset name="Dataset1" uuid="3d25c37f-b237-45ac-850b-40ff8b906e88">
+		<query language="sql"><![CDATA[]]></query>
+	</dataset>
+	<dataset name="Dataset2" uuid="60743833-4880-4499-9fef-e1d19884a85e">
+		<query language="sql"><![CDATA[]]></query>
+	</dataset>
+	<dataset name="Dataset3" uuid="d04d4308-8ea2-4b00-950b-e766bfb24c12">
+		<query language="sql"><![CDATA[]]></query>
+	</dataset>
+	<dataset name="Dataset4" uuid="337a90a8-3290-4501-b3f5-5318fe612435">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="NO_DATA_ADAPTER"/>
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<query language="SQL"><![CDATA[SELECT 
+    CustomerId, 
+    FirstName, 
+    LastName, 
+    Company, 
+    Address, 
+    City, 
+    Country, 
+    Email 
+FROM customers
+]]></query>
+		<field name="CustomerId" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="CustomerId"/>
+			<property name="com.jaspersoft.studio.field.label" value="CustomerId"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+		</field>
+		<field name="FirstName" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="FirstName"/>
+			<property name="com.jaspersoft.studio.field.label" value="FirstName"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+		</field>
+		<field name="LastName" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="LastName"/>
+			<property name="com.jaspersoft.studio.field.label" value="LastName"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+		</field>
+		<field name="Company" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="Company"/>
+			<property name="com.jaspersoft.studio.field.label" value="Company"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+		</field>
+		<field name="Address" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="Address"/>
+			<property name="com.jaspersoft.studio.field.label" value="Address"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+		</field>
+		<field name="City" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="City"/>
+			<property name="com.jaspersoft.studio.field.label" value="City"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+		</field>
+		<field name="Country" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="Country"/>
+			<property name="com.jaspersoft.studio.field.label" value="Country"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+		</field>
+		<field name="Email" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="Email"/>
+			<property name="com.jaspersoft.studio.field.label" value="Email"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customers"/>
+		</field>
+	</dataset>
+	<parameter name="ArtistName" class="java.lang.String">
+		<defaultValueExpression><![CDATA["AC/DC"]]></defaultValueExpression>
+	</parameter>
+	<query language="sql"><![CDATA[SELECT 
+    artists.Name AS ArtistName,
+    albums.Title AS AlbumTitle,
+    tracks.Name AS TrackName
+FROM artists
+JOIN albums ON artists.ArtistId = albums.ArtistId
+JOIN tracks ON albums.AlbumId = tracks.AlbumId
+WHERE artists.Name = $P{ArtistName}
+ORDER BY albums.Title, tracks.Name
+]]></query>
+	<field name="ArtistName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ArtistName"/>
+		<property name="com.jaspersoft.studio.field.label" value="ArtistName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="artists"/>
+	</field>
+	<field name="AlbumTitle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="AlbumTitle"/>
+		<property name="com.jaspersoft.studio.field.label" value="AlbumTitle"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="albums"/>
+	</field>
+	<field name="TrackName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TrackName"/>
+		<property name="com.jaspersoft.studio.field.label" value="TrackName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tracks"/>
+	</field>
+	<variable name="TotalTracks" calculation="Count" class="java.lang.Integer">
+		<expression><![CDATA[$F{TrackName}]]></expression>
+	</variable>
+	<group name="Group1">
+		<expression><![CDATA[$F{AlbumTitle}
+]]></expression>
+		<groupHeader>
+			<band height="61">
+				<element kind="textField" uuid="cfc9291d-d1fd-483c-af9d-2aec7f898dc1" x="160" y="15" width="395" height="41" fontSize="16.0" textAdjust="ScaleFont" hTextAlign="Center">
+					<expression><![CDATA[$F{AlbumTitle}
+]]></expression>
+				</element>
+				<element kind="staticText" uuid="7f519ea6-be2a-487a-94e3-9f5d7768a7b3" x="30" y="15" width="90" height="46" fontSize="16.0" bold="true" italic="true" hTextAlign="Center">
+					<text><![CDATA[Album:]]></text>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<title height="82" splitType="Stretch">
+		<element kind="staticText" uuid="53842092-fedc-43f2-a161-6fda9eb6da2c" key="coName" x="180" y="20" width="375" height="35" fontSize="22.0" printRepeatedValues="false" hTextAlign="Center">
+			<text><![CDATA[Company Name Co.]]></text>
+			<property name="com.jaspersoft.studio.element.name" value="coName"/>
+		</element>
+		<element kind="image" uuid="e54f33db-9e2f-4f1d-946b-52ecc7c2fdd3" x="50" y="0" width="80" height="80">
+			<expression><![CDATA["logo.png"]]></expression>
+		</element>
+	</title>
+	<pageHeader height="56" splitType="Stretch">
+		<element kind="staticText" uuid="7fa96fad-7ed5-4b57-b0e0-cf240e5cc8d1" x="60" y="10" width="120" height="46" fontSize="24.0" hTextAlign="Center">
+			<text><![CDATA[Artista: ]]></text>
+		</element>
+		<element kind="textField" uuid="458a6887-03f0-45db-9b88-3f4a6f9256f3" x="230" y="8" width="290" height="48" fontSize="16.0" textAdjust="ScaleFont" hTextAlign="Center">
+			<expression><![CDATA[$P{ArtistName}
+]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="12" splitType="Stretch"/>
+	<detail>
+		<band height="65" splitType="Stretch">
+			<element kind="textField" uuid="9017b5c0-64ad-44f5-a705-1d5a9704aa38" key="" x="180" y="17" width="375" height="30" fontSize="13.0" linkType="None" linkTarget="Self">
+				<expression><![CDATA[$F{TrackName}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
+			<element kind="staticText" uuid="5f06cb4d-ae5f-4089-8311-8e67e0db1522" x="60" y="17" width="100" height="30" fontSize="16.0" hTextAlign="Center">
+				<text><![CDATA[Cancion:]]></text>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="29" splitType="Stretch">
+		<element kind="textField" uuid="acd15c63-e0da-48c1-b6b8-b5c01098b4d8" x="480" y="0" width="75" height="29">
+			<expression><![CDATA["Página " + $V{PAGE_NUMBER}
+]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="42" splitType="Stretch">
+		<element kind="staticText" uuid="33c8c356-5178-43b7-8ab5-b72aadbd21dd" positionType="FixRelativeToBottom" x="0" y="1" width="150" height="41" underline="true" italic="true" hTextAlign="Center">
+			<text><![CDATA[Total de Canciones: ]]></text>
+		</element>
+		<element kind="textField" uuid="0af03d15-2dd6-4dcb-961f-9de4c63c26d5" positionType="FixRelativeToBottom" x="480" y="0" width="75" height="42" hTextAlign="Center">
+			<expression><![CDATA[$V{TotalTracks}
+]]></expression>
+		</element>
+	</summary>
+</jasperReport>
